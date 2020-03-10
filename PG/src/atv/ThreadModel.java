@@ -11,9 +11,9 @@ public class ThreadModel extends Thread{
 	public void run() {
 		
 		for(int a = 0; a < 1000; a++) {
-			
-			System.out.println(this.getId() + " - " + i.getNext());
-			
+			synchronized (i) {
+				System.out.println(this.getId() + " - " + i.getNext());
+			}
 			try {
 				this.sleep(1);
 			} catch(InterruptedException e) {
