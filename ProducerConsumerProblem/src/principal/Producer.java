@@ -3,7 +3,14 @@ package principal;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Producer {
+/**
+ * 
+ * @author henriquedavid
+ * 
+ * The producer insert elements in the vector.
+ * 
+ */
+public class Producer extends Thread{
 	ArrayList<Integer> i;
 	Counter c;
 	
@@ -12,9 +19,13 @@ public class Producer {
 		this.c = c;
 	}
 	
-	public int  insert() {
-		int last = c.getNext();
-		i.add(last);
-		return last;
+	public void run() {
+		System.out.println("ENTROU!");
+		int q = 100;
+		while(q != 0) {
+			i.add(c.get());
+			c.nextInt();
+			q--;
+		}
 	}
 }

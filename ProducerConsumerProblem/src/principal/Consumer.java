@@ -2,19 +2,29 @@ package principal;
 
 import java.util.ArrayList;
 
-public class Consumer {
+/**
+ * 
+ * @author henriquedavid
+ *
+ * The consumer get the values and delete the number that's in the counter.
+ */
+public class Consumer extends Thread{
 	
 	ArrayList<Integer> v;
 	Counter c;
 	
-	public Consumer(ArrayList<Integer> value, Counter c) {
-		this.v = value;
+	public Consumer(ArrayList<Integer> values, Counter c) {
+		this.v = values;
 		this.c = c;
 	}
 	
-	public void removeValue(Integer c) {
-		v.remove(c);
-		System.out.println("Removido!");
+	public void run() {
+		int q = 100;
+		while(q != 0) {
+			System.out.println("Removendo " + c.get());
+			v.remove(c.get());
+			q--;
+		}
 	}
 
 }

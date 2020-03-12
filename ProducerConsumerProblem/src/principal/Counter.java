@@ -6,8 +6,14 @@ public class Counter {
 	public Counter(Integer i) {
 		this.i = i;
 	}
+	
+	
 		
-	public Integer getNext() {
-		return i++;
+	public Integer get() {
+		return i;
+	}
+	
+	public void nextInt() {
+		i++;
 	}
 }
